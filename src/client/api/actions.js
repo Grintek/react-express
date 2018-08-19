@@ -37,7 +37,7 @@ export function apiGetBooks(callback) {
         dispatch(apiDataBooksLoaded(data));
         dispatch(apiRequestFinished({requestId}));
         if (callback) {
-          callback(); // get rid of callback here?
+          callback(); // избавиться от обратного вызова здесь?
         }
       })
       .catch((error) => {
@@ -62,7 +62,7 @@ export function apiGetBook(id, callback) {
         dispatch(apiDataBookLoaded(data));
         dispatch(apiRequestFinished({requestId}));
         if (callback) {
-          callback(); // get rid of callback here?
+          callback(); // избавиться от обратного вызова здесь?
         }
       })
       .catch((error) => {
@@ -84,10 +84,10 @@ export function apiAddBook(data, callback) {
     return api
       .addBook(data)
       .then(() => {
-        //dispatch(apiGetBooks());
+        //отправка(apiGetBooks());
         dispatch(apiRequestFinished({requestId}));
         if (callback) {
-          callback(); // get rid of callback here?
+          callback();
         }
       })
       .catch((error) => {

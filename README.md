@@ -1,36 +1,38 @@
 React boilerplate with ES2015, Express.js, and Webpack
 
-## Technologies
+## технологии
 - React (v16) + Redux (v3) + React Router (v4)
-- Express.js (v4) as production and development server
-- Webpack 4 (production and development configurations)
-- SCSS support (+ sanitize.css included)
-- ES2015+
+- Express.js (v4) как сервер производства и разработки
+- Webpack 4 (конфигурации производства и разработки)
+- Поддержка SCSS (включая + sanitize.css)
+- ES2015 +
 
 ## Features
-- preconfigured router
-- React Material UI example theme
+- предварительно сконфигурированный маршрутизатор
+- Тема примера пользовательского интерфейса React Material
 - preconfigured modal windows
-- preconfigured eslint and Prettier code formatter
-- React Hot Loader
+- preconfigured eslint и Prettier code formatter
+- Реактивный горячий загрузчик
 - Linux/MacOS/Windows
 
 ### Scripts
 ```bash
-# run development mode
+# запустить режим разработки
 npm run dev
 
-# run production mode
+# запустить режим производства
 npm run build
 npm start
 
-# run prettier
+# запустить
 npm run prettier
 
-# run lint
+# запустить lint
 npm run lint
 
-# run on a different port
+# запустить на другом порту
 HTTP_PORT=3001 npm run dev
 ```
+
+
 

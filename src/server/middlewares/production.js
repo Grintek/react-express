@@ -8,6 +8,6 @@ module.exports = function setup(app) {
   app.use(compression());
   app.use('/', express.static(clientBuildPath));
 
-  // all other requests be handled by UI itself
+  // все остальные запросы обрабатываются самим пользовательским интерфейсом
   app.get('*', (req, res) => res.sendFile(resolve(clientBuildPath, 'index.html')));
 };
