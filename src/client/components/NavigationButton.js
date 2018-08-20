@@ -22,7 +22,6 @@ class NavigationButton extends React.Component {
     const {to, label, ...props} = this.props;
     const activeStyle = {backgroundColor: lightGreen600};
     const buttonStyle = {color: 'white', marginLeft: 0, marginRight: 1};
-
     return (
       <NavLink to={to} activeStyle={activeStyle} {...props}>
         <FlatButton label={label} style={buttonStyle}>

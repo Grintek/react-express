@@ -12,7 +12,6 @@ export class AddBookPage extends React.Component {
   state = {
     isAddBook: false
   };
-
   static propTypes = {
     addBook: PropTypes.func.isRequired
   };
