@@ -17,7 +17,13 @@ const initialState = Map({
     book: {id: 0, name: '', description: ''}
   })
 });
-
+/**
+ * Обработка действий
+ * @param state
+ * @param action
+ * @returns {*}
+ * @constructor
+ */
 export default function ApiReducer(state = initialState, action) {
   switch (action.type) {
     case API_REQUEST_STARTED:

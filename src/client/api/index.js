@@ -9,6 +9,7 @@ function setEndpoint(value) {
 }
 
 /**
+ * Если ошибка
  * @param {String} url
  * @param {String} message
  * @param {Number} statusCode
@@ -23,6 +24,7 @@ function ApiError(url, message, statusCode) {
 }
 
 /**
+ * ApiError
  * @param {String} url
  * @param {Error} error
  * @param {Number|undefined} statusCode
