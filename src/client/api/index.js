@@ -48,8 +48,8 @@ function _request(params) {
     requestUrl = url;
     requestParams = restParams;
   }
-
   let rawResponse;
+  //Осуществляем запрос к серверу
   return fetch(requestUrl, {...defaultParams, ...requestParams})
     .then((response) => {
       rawResponse = response;
@@ -66,10 +66,19 @@ function _request(params) {
 
 // application api
 
+/**
+ * Загрузка книг
+ * @returns {Promise<T>}
+ */
 function getBooks() {
   return _request(`${endpoint}/books`);
 }
 
+/**
+ * Создвние книг
+ * @param payload
+ * @returns {Promise<T>}
+ */
 function addBook(payload) {
   return _request({
     url: `${endpoint}/books/add`,
@@ -80,6 +89,11 @@ function addBook(payload) {
   });
 }
 
+/**
+ * Загрузка книги по id
+ * @param id
+ * @returns {Promise<T>}
+ */
 function getBook(id) {
   return _request(`${endpoint}/book/${id}`);
 }

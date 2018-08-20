@@ -31,7 +31,7 @@ logger.info(`Application env: ${process.env.NODE_ENV}`);
 app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
-// application routes
+// маршру приложения
 setupApiRoutes(app);
 setupAppRoutes(app);
 
