@@ -14,7 +14,7 @@ const initialState = Map({
   }),
   data: Map({
     books: List(),
-    book: {id: 0, name: '', description: ''}
+    book: {id: 0, name: '', description: '', author: ''}
   })
 });
 /**

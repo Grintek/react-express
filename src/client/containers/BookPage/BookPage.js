@@ -48,6 +48,9 @@ export class BookPage extends React.Component {
           <h2>Название: </h2>
           <h4>{book.name}</h4>
           <br />
+          <h2>Автор: </h2>
+          <h4> {book.author}</h4>
+          <br />
           <h2>Описание: </h2>
           <h4> {book.description}</h4>
           <br />

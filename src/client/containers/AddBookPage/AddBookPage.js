@@ -35,14 +35,26 @@ export class AddBookPage extends React.Component {
         <TextField
           style={{marginRight: 10}}
           onChange={(e, value) => {
+            this.authorTextFieldValue = value;
+          }}
+          hintText={<FormattedMessage id="app.addBook.author" defaultMessage="Автор" />}
+        />
+        <TextField
+          style={{marginRight: 10}}
+          onChange={(e, value) => {
             this.descriptionTextFieldValue = value;
           }}
           hintText={<FormattedMessage id="app.addBook.description" defaultMessage="Описание" />}
         />
+
         <RaisedButton
           label={<FormattedMessage id="app.addBook.button" defaultMessage="Добавить книгу" />}
           onClick={() => {
-            this.addBook({name: this.nameTextFieldValue, description: this.descriptionTextFieldValue});
+            this.addBook({
+              name: this.nameTextFieldValue,
+              description: this.descriptionTextFieldValue,
+              author: this.authorTextFieldValue
+            });
           }}
         />
       </section>
