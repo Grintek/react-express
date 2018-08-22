@@ -43,6 +43,10 @@ export class BooksPage extends React.Component {
 
   render() {
     const {books, booksLastUpdate} = this.props;
+
+    /**
+     * Редирект на страницу с книгой по id
+     */
     if (this.state.isSelectBook === true) {
       return <Redirect to={this.state.path} />;
     }
