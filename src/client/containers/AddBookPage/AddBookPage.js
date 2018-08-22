@@ -12,12 +12,10 @@ export class AddBookPage extends React.Component {
   state = {
     isAddBook: false
   };
+
   static propTypes = {
     addBook: PropTypes.func.isRequired
   };
-
-  componentDidMount() {}
-
   render() {
     if (this.state.isAddBook === true) {
       return <Redirect to="/" />;

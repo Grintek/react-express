@@ -1,6 +1,6 @@
 import {createAction} from 'redux-actions';
 
-import api from 'api/index';
+import api from 'api/';
 
 function* createGuidGenerator() {
   let i = 1;

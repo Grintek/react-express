@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import {BrowserRouter, Route, Link} from 'react-router-dom';
 import {FormattedMessage, FormattedRelative} from 'react-intl';
 
 import {apiAddBook, apiGetBooks} from 'api/actions';
@@ -33,6 +34,13 @@ export class BooksPage extends React.Component {
     this.props.apiGetBooks();
   }
 
+  onDepression = (e) => {
+    this.setState({
+      path: '/book/' + e,
+      isSelectBook: true
+    });
+  };
+
   render() {
     const {books, booksLastUpdate} = this.props;
     if (this.state.isSelectBook === true) {
@@ -56,16 +64,8 @@ export class BooksPage extends React.Component {
             </TableRow>
           </TableHeader>
           <TableBody showRowHover displayRowCheckbox={false}>
-            {books.map(({id, name, discription}) => (
-              <TableRow
-                key={id}
-                onMouseUp={() => {
-                  this.setState(() => ({
-                    path: '/book/' + id,
-                    isSelectBook: true
-                  }));
-                }}
-              >
+            {books.map(({id, name}) => (
+              <TableRow key={id} onMouseUp={(e) => this.onDepression(id, e)}>
                 <TableRowColumn>{name}</TableRowColumn>
               </TableRow>
             ))}
