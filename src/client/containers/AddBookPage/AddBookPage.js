@@ -4,18 +4,31 @@ import {connect} from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import {FormattedMessage} from 'react-intl';
-import {history} from '../../helpers/history';
 import {apiAddBook} from '../../api/actions';
 import {Redirect} from 'react-router-dom';
 
 export class AddBookPage extends React.Component {
   state = {
-    isAddBook: false
+    isAddBook: false,
+    name: '',
+    author: '',
+    description: ''
   };
 
   static propTypes = {
     addBook: PropTypes.func.isRequired
   };
+
+  nameTextFieldValue(e) {
+    this.setState({name: e});
+  }
+  authorTextFieldValue(e) {
+    this.setState({author: e});
+  }
+  descriptionTextFieldValue(e) {
+    this.setState({description: e});
+  }
+
   render() {
     if (this.state.isAddBook === true) {
       return <Redirect to="/" />;
@@ -26,21 +39,21 @@ export class AddBookPage extends React.Component {
         <TextField
           style={{marginRight: 10}}
           onChange={(e, value) => {
-            this.nameTextFieldValue = value;
+            this.nameTextFieldValue(value);
           }}
           hintText={<FormattedMessage id="app.addBook.name" defaultMessage="Название" />}
         />
         <TextField
           style={{marginRight: 10}}
           onChange={(e, value) => {
-            this.authorTextFieldValue = value;
+            this.authorTextFieldValue(value);
           }}
           hintText={<FormattedMessage id="app.addBook.author" defaultMessage="Автор" />}
         />
         <TextField
           style={{marginRight: 10}}
           onChange={(e, value) => {
-            this.descriptionTextFieldValue = value;
+            this.descriptionTextFieldValue(value);
           }}
           hintText={<FormattedMessage id="app.addBook.description" defaultMessage="Описание" />}
         />
@@ -49,9 +62,9 @@ export class AddBookPage extends React.Component {
           label={<FormattedMessage id="app.addBook.button" defaultMessage="Добавить книгу" />}
           onClick={() => {
             this.addBook({
-              name: this.nameTextFieldValue,
-              description: this.descriptionTextFieldValue,
-              author: this.authorTextFieldValue
+              name: this.state.name,
+              author: this.state.author,
+              description: this.state.description
             });
           }}
         />

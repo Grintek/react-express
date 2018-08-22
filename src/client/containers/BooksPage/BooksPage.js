@@ -46,7 +46,6 @@ export class BooksPage extends React.Component {
     if (this.state.isSelectBook === true) {
       return <Redirect to={this.state.path} />;
     }
-
     return (
       <section style={{padding: 20}}>
         <h2>

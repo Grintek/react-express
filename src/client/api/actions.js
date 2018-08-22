@@ -29,7 +29,7 @@ export const apiDataBookLoaded = createAction(API_DATA_BOOK_LOADED);
  */
 export function apiGetBooks(callback) {
   return function dispatchApiGetBooks(dispatch) {
-    const requestId = guidGenerator.next().value;
+    const requestId = guidGenerator.next().value; //генератор обьектов
     dispatch(apiRequestStarted({requestId}));
     return api
       .getBooks()

@@ -11,7 +11,8 @@ import ProgressBar from '../components/ProgressBar';
 
 export const AppLayout = (props) => {
   const {loading} = props;
-  const styles = {position: 'fixed', width: '100%', zIndex: 10};
+  const style = {position: 'fixed', width: '100%', zIndex: 10};
+  const styles = {style};
   return (
     <section>
       <Paper zDepth={1} style={styles}>
