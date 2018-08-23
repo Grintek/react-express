@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Redirect, Route, Switch} from 'react-router-dom';
-import Paper from 'material-ui/Paper';
+import Paper from '@material-ui/core/Paper';
 
 import {AppBar} from '../containers/AppBar';
 import BooksPage from '../containers/BooksPage/BooksPage';
@@ -15,7 +15,7 @@ export const AppLayout = (props) => {
   const styles = {style};
   return (
     <section>
-      <Paper zDepth={1} style={styles}>
+      <Paper elevation={1} style={styles}>
         <AppBar />
         {loading && <ProgressBar />}
       </Paper>

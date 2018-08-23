@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import Card from 'material-ui/Card';
+import Card from '@material-ui/core/Card';
 import {FormattedMessage, FormattedRelative} from 'react-intl';
 
 import {apiGetBook} from 'api/actions';

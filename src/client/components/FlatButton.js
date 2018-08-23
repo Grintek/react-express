@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '@material-ui/core/Button';
 
 class StyledFlatButton extends React.Component {
   static propTypes = {
@@ -17,9 +17,9 @@ class StyledFlatButton extends React.Component {
     const style = Object.assign({}, {lineHeight: '33px'}, this.props.style);
 
     return (
-      <FlatButton {...this.props} style={style}>
+      <Button {...this.props} style={style}>
         {React.Children.toArray(this.props.children)}
-      </FlatButton>
+      </Button>
     );
   }
 }

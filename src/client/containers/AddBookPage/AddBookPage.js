@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import RaisedButton from 'material-ui/RaisedButton';
-import TextField from 'material-ui/TextField';
+import StepButton from '@material-ui/core/StepButton';
+import TextField from '@material-ui/core/TextField';
 import {FormattedMessage} from 'react-intl';
 import {apiAddBook} from '../../api/actions';
 import {Redirect} from 'react-router-dom';
@@ -41,24 +41,24 @@ export class AddBookPage extends React.Component {
           onChange={(e, value) => {
             this.nameTextFieldValue(value);
           }}
-          hintText={<FormattedMessage id="app.addBook.name" defaultMessage="Название" />}
+          SelectProps={<FormattedMessage id="app.addBook.name" defaultMessage="Название" />}
         />
         <TextField
           style={{marginRight: 10}}
           onChange={(e, value) => {
             this.authorTextFieldValue(value);
           }}
-          hintText={<FormattedMessage id="app.addBook.author" defaultMessage="Автор" />}
+          SelectProps={<FormattedMessage id="app.addBook.author" defaultMessage="Автор" />}
         />
         <TextField
           style={{marginRight: 10}}
           onChange={(e, value) => {
             this.descriptionTextFieldValue(value);
           }}
-          hintText={<FormattedMessage id="app.addBook.description" defaultMessage="Описание" />}
+          SelectProps={<FormattedMessage id="app.addBook.description" defaultMessage="Описание" />}
         />
 
-        <RaisedButton
+        <StepButton
           label={<FormattedMessage id="app.addBook.button" defaultMessage="Добавить книгу" />}
           onClick={() => {
             this.addBook({

@@ -1,9 +1,9 @@
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import {createMuiTheme} from '@material-ui/core/styles';
 import {green, teal} from '@material-ui/core/colors';
 
-export default getMuiTheme({
+export default createMuiTheme({
   fontSize: 14,
-  fontFamily: 'Helvetica',
+  fontFamily: 'Comforta',
   palette: {
     primary1Color: teal[700],
     primary2Color: teal[500],
@@ -21,5 +21,8 @@ export default getMuiTheme({
   },
   button: {
     height: 36
+  },
+  root: {
+    flexGrow: 1
   }
 });

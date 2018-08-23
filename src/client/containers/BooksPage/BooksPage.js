@@ -1,7 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
@@ -61,15 +65,15 @@ export class BooksPage extends React.Component {
           )}
         </h2>
         <Table>
-          <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-            <TableRow displayBorder>
-              <TableHeaderColumn>Название</TableHeaderColumn>
+          <TableHead>
+            <TableRow>
+              <TableCell>Название</TableCell>
             </TableRow>
-          </TableHeader>
-          <TableBody showRowHover displayRowCheckbox={false}>
+          </TableHead>
+          <TableBody>
             {books.map(({id, name}) => (
               <TableRow key={id} onMouseUp={(e) => this.onDepression(id, e)}>
-                <TableRowColumn>{name}</TableRowColumn>
+                <TableCell>{name}</TableCell>
               </TableRow>
             ))}
           </TableBody>
