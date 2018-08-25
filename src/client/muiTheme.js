@@ -1,26 +1,26 @@
 import {createMuiTheme} from '@material-ui/core/styles';
-import {green, teal} from '@material-ui/core/colors';
+import teal from '@material-ui/core/colors/teal';
+import green from '@material-ui/core/colors/green';
+import amber from '@material-ui/core/colors/amber';
+import read from '@material-ui/core/colors/red';
 
 export default createMuiTheme({
   fontSize: 14,
   fontFamily: 'Comforta',
   palette: {
-    primary1Color: teal[700],
-    primary2Color: teal[500],
-    primary3Color: teal[300],
-    accent1Color: green[600]
+    secondary: amber,
+    primary: green
   },
-  toolbar: {
-    backgroundColor: teal[700]
-  },
-  flatButton: {
-    textTransform: 'none',
-    fontWeight: 'bold',
-    fontSize: 15,
-    buttonFilterColor: green[600]
-  },
-  button: {
-    height: 36
+  overrides: {
+    MuiButton: {
+      root: {
+        marginLeft: 10,
+        fontSize: 15,
+        buttonFilterColor: green[600],
+        color: 'white',
+        textDecoration: 'none'
+      }
+    }
   },
   root: {
     flexGrow: 1

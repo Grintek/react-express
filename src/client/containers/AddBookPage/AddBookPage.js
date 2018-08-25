@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import StepButton from '@material-ui/core/StepButton';
+import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {FormattedMessage} from 'react-intl';
 import {apiAddBook} from '../../api/actions';
@@ -19,15 +19,15 @@ export class AddBookPage extends React.Component {
     addBook: PropTypes.func.isRequired
   };
 
-  nameTextFieldValue(e) {
-    this.setState({name: e});
-  }
-  authorTextFieldValue(e) {
-    this.setState({author: e});
-  }
-  descriptionTextFieldValue(e) {
-    this.setState({description: e});
-  }
+  nameTextFieldValue = (e) => {
+    this.setState({name: e.target.value});
+  };
+  authorTextFieldValue = (e) => {
+    this.setState({author: e.target.value});
+  };
+  descriptionTextFieldValue = (e) => {
+    this.setState({description: e.target.value});
+  };
 
   render() {
     if (this.state.isAddBook === true) {
@@ -38,28 +38,23 @@ export class AddBookPage extends React.Component {
       <section style={{padding: 20}}>
         <TextField
           style={{marginRight: 10}}
-          onChange={(e, value) => {
-            this.nameTextFieldValue(value);
-          }}
-          SelectProps={<FormattedMessage id="app.addBook.name" defaultMessage="Название" />}
+          onChange={this.nameTextFieldValue}
+          label={<FormattedMessage id="app.addBook.name" defaultMessage="Название" />}
         />
         <TextField
           style={{marginRight: 10}}
-          onChange={(e, value) => {
-            this.authorTextFieldValue(value);
-          }}
-          SelectProps={<FormattedMessage id="app.addBook.author" defaultMessage="Автор" />}
+          onChange={this.authorTextFieldValue}
+          label={<FormattedMessage id="app.addBook.author" defaultMessage="Автор" />}
         />
         <TextField
           style={{marginRight: 10}}
-          onChange={(e, value) => {
-            this.descriptionTextFieldValue(value);
-          }}
-          SelectProps={<FormattedMessage id="app.addBook.description" defaultMessage="Описание" />}
+          onChange={this.descriptionTextFieldValue}
+          label={<FormattedMessage id="app.addBook.description" defaultMessage="Описание" />}
         />
 
-        <StepButton
-          label={<FormattedMessage id="app.addBook.button" defaultMessage="Добавить книгу" />}
+        <Button
+          children={<FormattedMessage id="app.addBook.button" defaultMessage="Добавить книгу" />}
+          color="primary"
           onClick={() => {
             this.addBook({
               name: this.state.name,

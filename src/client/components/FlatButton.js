@@ -14,13 +14,8 @@ class StyledFlatButton extends React.Component {
   };
 
   render() {
-    const style = Object.assign({}, {lineHeight: '33px'}, this.props.style);
-
-    return (
-      <Button {...this.props} style={style}>
-        {React.Children.toArray(this.props.children)}
-      </Button>
-    );
+    const style = Object.assign({}, this.props.style);
+    return <Button labal={this.props.label} color="secondary" {...this.props} style={style} />;
   }
 }
 

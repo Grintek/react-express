@@ -72,7 +72,7 @@ export class BooksPage extends React.Component {
           </TableHead>
           <TableBody>
             {books.map(({id, name}) => (
-              <TableRow key={id} onMouseUp={(e) => this.onDepression(id, e)}>
+              <TableRow key={id} onMouseUp={(e) => this.onDepression(id, e)} hover>
                 <TableCell>{name}</TableCell>
               </TableRow>
             ))}
