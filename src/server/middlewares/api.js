@@ -35,6 +35,21 @@ const books = [
   }
 ];
 
+const authors = [
+  {
+    id: 0,
+    author: 'Роман Владимирович Куликов'
+  },
+  {
+    id: 1,
+    author: 'Дмитрий Алексеевич Глуховский'
+  },
+  {
+    id: 2,
+    author: 'Dzho Dispenza'
+  }
+];
+
 module.exports = function setup(app) {
   app.get('/api/books', (req, res) => {
     res.json(books);
@@ -46,7 +61,9 @@ module.exports = function setup(app) {
     });
     res.json(book);
   });
-
+  app.get('/api/books/add', (req, res) => {
+    res.json(authors);
+  });
   app.post('/api/books/add', (req, res) => {
     if (!req.body.name) {
       return res.json({

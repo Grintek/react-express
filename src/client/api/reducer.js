@@ -1,6 +1,12 @@
 import {List, Map, OrderedMap} from 'immutable';
 
-import {API_DATA_BOOK_LOADED, API_DATA_BOOKS_LOADED, API_REQUEST_FINISHED, API_REQUEST_STARTED} from 'api/actions';
+import {
+  API_DATA_BOOK_LOADED,
+  API_DATA_BOOKS_LOADED,
+  API_DATA_AUTHOR,
+  API_REQUEST_FINISHED,
+  API_REQUEST_STARTED
+} from 'api/actions';
 
 const initialState = Map({
   loading: false,
@@ -10,11 +16,13 @@ const initialState = Map({
   }),
   lastUpdate: Map({
     books: null,
-    book: null
+    book: null,
+    authors: null
   }),
   data: Map({
     books: List(),
-    book: {id: 0, name: '', description: '', author: ''}
+    book: {id: 0, name: '', description: '', author: ''},
+    authors: List()
   })
 });
 /**
@@ -39,14 +47,16 @@ export default function ApiReducer(state = initialState, action) {
         );
 
     case API_DATA_BOOKS_LOADED:
-      return state
-        .setIn(['lastUpdate', 'books'], Date.now())
+      return state.setIn(['lastUpdate', 'books'], Date.now())
         .setIn(['data', 'books'], List(action.payload));
 
     case API_DATA_BOOK_LOADED:
-      return state
-        .setIn(['lastUpdate', 'book'], Date.now())
+      return state.setIn(['lastUpdate', 'book'], Date.now())
         .setIn(['data', 'book'], action.payload);
+
+    case API_DATA_AUTHOR:
+      return state.setIn(['lastUpdate', 'authors'], Date.now())
+        .setIn(['data', 'authors'], List(action.payload));
     default:
       return state;
   }

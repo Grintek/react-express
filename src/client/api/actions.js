@@ -22,6 +22,9 @@ export const apiDataBooksLoaded = createAction(API_DATA_BOOKS_LOADED);
 export const API_DATA_BOOK_LOADED = 'API_DATA_BOOK_LOADED';
 export const apiDataBookLoaded = createAction(API_DATA_BOOK_LOADED);
 
+export const API_DATA_AUTHOR = 'API_DATA_AUTHOR';
+export const apiDataAuthor = createAction(API_DATA_AUTHOR);
+
 /**
  * Получить книги
  * @param callback
@@ -83,11 +86,36 @@ export function apiAddBook(data, callback) {
     dispatch(apiRequestStarted({requestId}));
     return api
       .addBook(data)
-      .then(() => {
+      .then((data) => {
+        dispatch(apiDataBookLoaded(data));
         //отправка(apiGetBooks());
         dispatch(apiRequestFinished({requestId}));
         if (callback) {
           callback();
+        }
+      })
+      .catch((error) => {
+        dispatch(apiRequestFinished({requestId, error}));
+      });
+  };
+}
+
+/**
+ * Добавляем автора
+ * @param callback
+ * @returns {function(*): Promise<T | never | never | never | never | never>}
+ */
+export function apiGetAuthor(callback) {
+  return function dispatchApiGetBook(dispatch) {
+    const requestId = guidGenerator.next().value;
+    dispatch(apiRequestStarted({requestId}));
+    return api
+      .getAuthors()
+      .then((data) => {
+        dispatch(apiDataAuthor(data));
+        dispatch(apiRequestFinished({requestId}));
+        if (callback) {
+          callback(); // избавиться от обратного вызова здесь?
         }
       })
       .catch((error) => {

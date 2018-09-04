@@ -33,7 +33,6 @@ export class BooksPage extends React.Component {
     isSelectBook: false,
     path: ''
   };
-
   componentDidMount() {
     this.props.apiGetBooks();
   }

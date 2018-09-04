@@ -75,6 +75,9 @@ function _request(params) {
 function getBooks() {
   return _request(`${endpoint}/books`);
 }
+function getAuthors() {
+  return _request(`${endpoint}/books/add`);
+}
 
 /**
  * Создвние книг
@@ -102,6 +105,7 @@ function getBook(id) {
 
 export default {
   getBooks: getBooks,
+  getAuthors: getAuthors,
   getBook: getBook,
   addBook: addBook,
   setEndpoint
