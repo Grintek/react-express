@@ -28,7 +28,7 @@ export class BookPage extends React.Component {
 
   render() {
     const {book, bookLastUpdate} = this.props;
-
+    console.log(book);
     if (book.id === 0) {
       return <section style={{padding: 20}} />;
     }
